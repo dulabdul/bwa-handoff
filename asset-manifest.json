@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/bwa-handoff/static/css/main.390b29ac.css",
+    "main.js": "/bwa-handoff/static/js/main.29052c9a.js",
+    "static/js/787.b32b558e.chunk.js": "/bwa-handoff/static/js/787.b32b558e.chunk.js",
+    "static/media/hero-img.jpg": "/bwa-handoff/static/media/hero-img.28249c1ccc6bd58284ee.jpg",
+    "static/media/logo.svg": "/bwa-handoff/static/media/logo.bdae1955b5ac1db73dc16dbc4a3112b4.svg",
+    "static/media/cart.svg": "/bwa-handoff/static/media/cart.8d00949eb16eaf4f3fa310d45aaa90eb.svg",
+    "static/media/menu-hamburger.svg": "/bwa-handoff/static/media/menu-hamburger.c25a5a09f525b700242cd59ab9825b08.svg",
+    "index.html": "/bwa-handoff/index.html",
+    "main.390b29ac.css.map": "/bwa-handoff/static/css/main.390b29ac.css.map",
+    "main.29052c9a.js.map": "/bwa-handoff/static/js/main.29052c9a.js.map",
+    "787.b32b558e.chunk.js.map": "/bwa-handoff/static/js/787.b32b558e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.390b29ac.css",
+    "static/js/main.29052c9a.js"
+  ]
+}
