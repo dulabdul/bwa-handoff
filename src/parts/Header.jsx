@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logoSVG from '../assets/images/design/logo.svg';
 import hamburgerMenu from '../assets/images/design/menu-hamburger.svg';
 import cartSVG from '../assets/images/design/cart.svg';
+import Button from '../elements/Button';
 // Hamburger
 
 //End of Hamburger
@@ -23,7 +24,7 @@ export default function Header() {
               />
             </div>
             <div className='flex items-center px-4 transition-all '>
-              <button
+              <Button
                 type='button'
                 id='hamburger'
                 name='hamburger'
@@ -33,7 +34,7 @@ export default function Header() {
                   src={hamburgerMenu}
                   alt='Hamburger Button'
                 />
-              </button>
+              </Button>
               <nav
                 className={`absolute transition-all right-0 bg-white w-full lg:bg-transparent lg:block lg:w-full lg:static top-full ease-out duration-500 ${
                   hamburgerOpen ? 'block' : 'hidden'

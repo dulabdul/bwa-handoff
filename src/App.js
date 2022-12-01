@@ -1,11 +1,18 @@
-import Header from './components/Header';
-import Hero from './components/Hero';
+import { Routes, Route } from 'react-router-dom';
+import LandingPages from './pages/LandingPages';
 function App() {
   return (
-    <div className='App font-open-sans'>
-      <Header />
-      <Hero />
-    </div>
+    <>
+      <div className='App font-open-sans'>
+        <Routes>
+          <Route
+            exacth
+            path='/'
+            element={<LandingPages />}
+          />
+        </Routes>
+      </div>
+    </>
   );
 }
 
