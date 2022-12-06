@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
 @tailwind base;
+@layer base {
+  .button:hover img {
+    filter: invert(79%) sepia(94%) saturate(1653%) hue-rotate(282deg)
+      brightness(105%) contrast(99%);
+  }
+}
 @tailwind components;
 @layer components {
   .show-nav {
@@ -8,6 +14,33 @@
   }
   .vidio {
     background-image: url('./assets/images/design/polygon.svg');
+  }
+  ul.breadcrumb li:not(:last-child):after {
+    content: '/';
+    @apply px-4;
+  }
+
+  ul.breadcrumb li:not(:last-child) a {
+    @apply font-light;
+  }
+
+  ul.breadcrumb li:last-child a {
+    @apply font-semibold;
+  }
+  .button {
+    @apply bg-pink-300 rounded-full px-6 py-3 inline-block mt-10 text-slate-900 font-semibold text-base hover:text-pink-300 hover:bg-black transition-all ease-in-out;
+  }
+  .card-row-1 {
+    @apply overflow-hidden relative md:col-span-6 md:row-span-1 h-[180px] hover:scale-95 transition-all duration-500 rounded-3xl;
+  }
+  .card-row__img {
+    @apply w-full h-full object-cover object-center md:object-bottom bg-no-repeat shadow-md group-hover:scale-110 transition-all duration-500 md:absolute;
+  }
+  .card-row-2 {
+    @apply h-[180px] overflow-hidden relative row-span-1 md:col-span-3 md:row-span-2 md:h-[390px] hover:scale-95 transition-all duration-500 rounded-3xl;
+  }
+  .grid-cart {
+    @apply grid grid-cols-4 md:px-4 mx-auto gap-y-4 gap-x-2 items-center justify-center overflow-hidden w-[315px] h-[90px] md:mx-0 rounded-2xl md:w-full my-6;
   }
 }
 @tailwind utilities;

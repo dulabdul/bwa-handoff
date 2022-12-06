@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import logoSVG from '../assets/images/design/logo.svg';
 import hamburgerMenu from '../assets/images/design/menu-hamburger.svg';
 import cartSVG from '../assets/images/design/cart.svg';
-import Button from '../elements/Button';
+import Button from '../components/Button';
 // Hamburger
 
 //End of Hamburger
-export default function Header() {
+export default function Header({ pages }) {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const toggleHamburger = () => {
     setHamburgerOpen(!hamburgerOpen);
@@ -14,14 +14,19 @@ export default function Header() {
 
   return (
     <>
-      <header className='absolute w-full z-50 top-0'>
+      <header
+        className={`w-full z-50 top-0 ${pages === 'Home' ? 'absolute' : ''}`}>
         <div className='container mx-auto'>
           <div className='flex items-center justify-between relative py-5'>
             <div className='flex items-center px-4'>
-              <img
-                src={logoSVG}
-                alt='LuxSpace Logo'
-              />
+              <Button
+                type='link'
+                href='/'>
+                <img
+                  src={logoSVG}
+                  alt='LuxSpace Logo'
+                />
+              </Button>
             </div>
             <div className='flex items-center px-4 transition-all '>
               <Button
@@ -36,7 +41,7 @@ export default function Header() {
                 />
               </Button>
               <nav
-                className={`absolute transition-all right-0 bg-white w-full lg:bg-transparent lg:block lg:w-full lg:static top-full ease-out duration-500 ${
+                className={`transition-all right-0 bg-white w-full lg:bg-transparent lg:block lg:w-full lg:static top-full ease-out duration-500 ${
                   hamburgerOpen ? 'block' : 'hidden'
                 } ${hamburgerOpen ? 'h-100' : ''}`}
                 id='navMenu'>
@@ -44,28 +49,44 @@ export default function Header() {
                   <li className='group '>
                     <a
                       href='a'
-                      className='text-slate-900 text-center mx-4 py-1 flex text-base group-hover:text-white group-hover:underline'>
+                      className={`text-slate-900 text-center mx-4 py-1 flex text-base group-hover:underline ${
+                        pages === 'Home'
+                          ? 'group-hover:text-white'
+                          : 'group-hover:text-black'
+                      }`}>
                       Showcase
                     </a>
                   </li>
                   <li className='group'>
                     <a
                       href='a'
-                      className='text-slate-900 mx-4 py-1 flex text-base group-hover:text-white group-hover:underline'>
+                      className={`text-slate-900 text-center mx-4 py-1 flex text-base group-hover:underline ${
+                        pages === 'Home'
+                          ? 'group-hover:text-white'
+                          : 'group-hover:text-black'
+                      }`}>
                       Catalog
                     </a>
                   </li>
                   <li className='group'>
                     <a
                       href='a'
-                      className='text-slate-900 mx-4 py-1 flex text-base group-hover:text-white group-hover:underline'>
+                      className={`text-slate-900 text-center mx-4 py-1 flex text-base group-hover:underline ${
+                        pages === 'Home'
+                          ? 'group-hover:text-white'
+                          : 'group-hover:text-black'
+                      }`}>
                       Delivery
                     </a>
                   </li>
                   <li className='group'>
                     <a
                       href='a'
-                      className='text-slate-900 mx-4 py-1 flex text-base group-hover:text-white group-hover:underline'>
+                      className={`text-slate-900 text-center mx-4 py-1 flex text-base group-hover:underline ${
+                        pages === 'Home'
+                          ? 'group-hover:text-white'
+                          : 'group-hover:text-black'
+                      }`}>
                       Rewards
                     </a>
                   </li>

@@ -1,7 +1,14 @@
 import React from 'react';
 import heroImg from '../assets/images/content/hero-img.jpg';
-import Button from '../elements/Button';
-const Hero = () => {
+import Button from '../components/Button';
+
+export default function Hero({ exploreRef }) {
+  const handlerRef = (ref) => {
+    window.scrollTo({
+      top: ref.offsetTop - 10,
+      behavior: 'smooth',
+    });
+  };
   return (
     <section className='flex items-center hero'>
       <div className='w-full flex flex-col justify-center z-20 inset-0 absolute text-center min-h-[90vh] md:min-h-[auto] md:relative md:w-1/2 '>
@@ -14,10 +21,11 @@ const Hero = () => {
         </h3>
         <div>
           <Button
-            type='link'
-            href='/'
+            type='button'
+            onClick={() => handlerRef(exploreRef.current)}
             hasShadow
-            className='bg-pink-300 rounded-full px-6 py-3 inline-block mt-10 text-slate-900 font-semibold text-base hover:text-pink-300 hover:bg-black transition-all ease-in-out'>
+            isWidthAuto
+            className='button'>
             Explore Now
           </Button>
         </div>
@@ -35,6 +43,4 @@ const Hero = () => {
       </div>
     </section>
   );
-};
-
-export default Hero;
+}

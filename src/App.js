@@ -1,5 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
+import Cart from './pages/Cart';
+import DetailsPage from './pages/DetailsPage';
 import LandingPages from './pages/LandingPages';
+import SuccessPages from './pages/SuccessPages';
+import NotFoundPages from './pages/NotFoundPages';
+
 function App() {
   return (
     <>
@@ -9,6 +14,26 @@ function App() {
             exacth
             path='/'
             element={<LandingPages />}
+          />
+          <Route
+            exacth
+            path='/categories/:idc'
+            element={<DetailsPage />}
+          />
+          <Route
+            exacth
+            path='/cart/:idc'
+            element={<Cart />}
+          />
+          <Route
+            exacth
+            path='/success'
+            element={<SuccessPages />}
+          />
+          <Route
+            exacth
+            path='*'
+            element={<NotFoundPages />}
           />
         </Routes>
       </div>

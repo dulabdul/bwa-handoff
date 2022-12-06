@@ -6,8 +6,10 @@ export default function Button(props) {
   const className = [props.className];
   if (props.isWidthAuto) className.push('w-auto');
   if (props.isBlock) className.push('block');
-  if (props.hasShadow) className.push('shadow-md');
-
+  if (props.hasShadow) className.push('shadow-sm');
+  if (props.isWidthAuto) className.push('w-auto');
+  if (props.isFlex) className.push('flex');
+  if (props.isFull) className.push('w-full');
   const onClick = () => {
     if (props.onClick) props.onClick();
   };
@@ -71,6 +73,8 @@ Button.propTypes = {
   isWidthAuto: propTypes.bool,
   isLight: propTypes.bool,
   isBlock: propTypes.bool,
+  isFlex: propTypes.bool,
+  isFull: propTypes.bool,
   isExternal: propTypes.bool,
   hasShadow: propTypes.bool,
 };
