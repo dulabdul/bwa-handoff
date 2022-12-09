@@ -1,8 +1,5 @@
 import React from 'react';
-import chair1 from '../../assets/images/content/chair-1.png';
-import chair2 from '../../assets/images/content/chair-2.png';
-import chair3 from '../../assets/images/content/chair-3.png';
-import chair4 from '../../assets/images/content/chair-4.png';
+
 export default function Suggestion() {
   return (
     <section className='bg-gray-100'>
@@ -17,7 +14,7 @@ export default function Suggestion() {
             <div className='shadow-sm bg-white rounded-3xl overflow-hidden w-[287px] h-[328px] px-4 py-8'>
               <div className='mb-8'>
                 <img
-                  src={chair1}
+                  src=''
                   className='rounded-3xl shadow-sm object-cover bg-no-repeat object-center'
                   alt=''
                 />
@@ -28,7 +25,7 @@ export default function Suggestion() {
             <div className='shadow-sm bg-white rounded-3xl overflow-hidden w-[287px] h-[328px] px-4 py-8'>
               <div className='mb-8'>
                 <img
-                  src={chair1}
+                  src=''
                   className='rounded-3xl shadow-sm object-cover bg-no-repeat object-center'
                   alt=''
                 />
@@ -39,7 +36,7 @@ export default function Suggestion() {
             <div className='shadow-sm bg-white rounded-3xl overflow-hidden w-[287px] h-[328px] px-4 py-8'>
               <div className='mb-8'>
                 <img
-                  src={chair1}
+                  src=''
                   className='rounded-3xl shadow-sm object-cover bg-no-repeat object-center'
                   alt=''
                 />
@@ -50,7 +47,7 @@ export default function Suggestion() {
             <div className='shadow-sm bg-white rounded-3xl overflow-hidden w-[287px] h-[328px] px-4 py-8'>
               <div className='mb-8'>
                 <img
-                  src={chair1}
+                  src=''
                   className='rounded-3xl shadow-sm object-cover bg-no-repeat object-center'
                   alt=''
                 />
@@ -61,7 +58,7 @@ export default function Suggestion() {
             <div className='shadow-sm bg-white rounded-3xl overflow-hidden w-[287px] h-[328px] px-4 py-8'>
               <div className='mb-8'>
                 <img
-                  src={chair1}
+                  src=''
                   className='rounded-3xl shadow-sm object-cover bg-no-repeat object-center'
                   alt=''
                 />

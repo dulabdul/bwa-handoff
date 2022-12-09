@@ -1,7 +1,5 @@
 import React from 'react';
-import chair1 from '../../assets/images/content/chair-1.png';
-import chair2 from '../../assets/images/content/chair-2.png';
-import chair3 from '../../assets/images/content/chair-3.png';
+
 import Button from '../../components/Button';
 import xSVG from '../../assets/images/design/X.svg';
 export default function ShoppingCart() {
@@ -30,7 +28,7 @@ export default function ShoppingCart() {
       <div className='grid-cart'>
         <div className='w-full h-full'>
           <img
-            src={chair1}
+            src=''
             className='w-full h-full object-cover bg-no-repeat object-center rounded-2xl shadow-sm md:h-[90px] md:w-[90px]'
             alt=''
           />
@@ -58,7 +56,7 @@ export default function ShoppingCart() {
       <div className='grid-cart'>
         <div className='w-full h-full'>
           <img
-            src={chair1}
+            src=''
             className='w-full h-full object-cover bg-no-repeat object-center rounded-2xl md:w-[90px] md:h-[90px] shadow-sm'
             alt=''
           />
@@ -86,7 +84,7 @@ export default function ShoppingCart() {
       <div className='grid-cart'>
         <div className='w-full h-full'>
           <img
-            src={chair1}
+            src=''
             className='w-full h-full object-cover bg-no-repeat object-center rounded-2xl shadow-sm md:w-[90px] md:h-[90px]'
             alt=''
           />

@@ -1,5 +1,5 @@
 import React from 'react';
-import heroImg from '../assets/images/content/hero-img.jpg';
+import heroImg from '../assets/images/design/hero-img.jpg';
 import Button from '../components/Button';
 
 export default function Hero({ exploreRef }) {

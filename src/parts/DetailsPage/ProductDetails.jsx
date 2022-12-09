@@ -1,9 +1,5 @@
 import React from 'react';
-import showcaseFront from '../../assets/images/content/showcase-1.front.jpg';
-import showcaseBack from '../../assets/images/content/showcase-1.back.jpg';
-import showcaseRear from '../../assets/images/content/showcase-1.rear.jpg';
-import showcaseSide from '../../assets/images/content/showcase-1.side.jpg';
-import showcaseTop from '../../assets/images/content/showcase-1.top.jpg';
+
 import cartSVG from '../../assets/images/design/cart.svg';
 import Button from '../../components/Button';
 export default function ProductDetails() {
@@ -19,28 +15,28 @@ export default function ProductDetails() {
         <div className='thumbnail grid grid-flow-col gap-x-2 -mx-2 overflow-x-auto row-start-3 pl-2 md:grid-flow-row md:row-start-1 md:col-start-1 md:col-end-2'>
           <div className='bg-gray-100 w-[106px] h-[106px]'>
             <img
-              src={showcaseBack}
+              src=''
               className='overflow-hidden rounded-lg object-cover w-full h-full object-center'
               alt=''
             />
           </div>
           <div className='bg-gray-100 w-[106px] h-[106px]'>
             <img
-              src={showcaseBack}
+              src=''
               className='overflow-hidden rounded-lg object-cover w-full h-full object-center'
               alt=''
             />
           </div>
           <div className='bg-gray-100 w-[106px] h-[106px]'>
             <img
-              src={showcaseBack}
+              src=''
               className='overflow-hidden rounded-lg object-cover w-full h-full object-center'
               alt=''
             />
           </div>
           <div className='bg-gray-100 w-[106px] h-[106px]'>
             <img
-              src={showcaseBack}
+              src=''
               className='overflow-hidden rounded-lg object-cover w-full h-full object-center'
               alt=''
             />
@@ -49,7 +45,7 @@ export default function ProductDetails() {
         <div className='w-full py-6 md:h-[609px] md:w-[560px] md:col-start-2 md:col-end-5 md:row-start-1'>
           <div className='overflow-hidden h-full bg-gray-100 rounded-xl'>
             <img
-              src={showcaseFront}
+              src=''
               className='object-cover object-center overflow-hidden h-full w-full'
               alt=''
             />

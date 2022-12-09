@@ -17,7 +17,7 @@ function App() {
           />
           <Route
             exacth
-            path='/categories/:idc'
+            path='/categories/:idc/products/:id'
             element={<DetailsPage />}
           />
           <Route
