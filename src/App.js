@@ -5,12 +5,8 @@ import LandingPages from './pages/LandingPages';
 import SuccessPages from './pages/SuccessPages';
 import NotFoundPages from './pages/NotFoundPages';
 import Provider from './helpers/hooks/useGlobalContext';
-import { useEffect } from 'react';
 
 function App() {
-  useEffect(() => {
-    import('tw-elements');
-  }, []);
   return (
     <Provider>
       <Router>
