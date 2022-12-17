@@ -14,7 +14,7 @@ export default function Button(props) {
     if (props.onClick) props.onClick();
   };
 
-  if (props.isDisabled || props.isLoading) {
+  if (props.isLoading) {
     return (
       <span
         className={className.join(' ')}
@@ -53,7 +53,18 @@ export default function Button(props) {
         </Link>
       );
     }
+  } else if (props.isDisabled) {
+    return (
+      <button
+        className={className.join(' ')}
+        style={props.style}
+        disabled
+        onClick={onClick}>
+        {props.children}
+      </button>
+    );
   }
+
   return (
     <button
       className={className.join(' ')}
@@ -63,6 +74,7 @@ export default function Button(props) {
     </button>
   );
 }
+
 Button.propTypes = {
   type: propTypes.oneOf(['button', 'link']),
   onClick: propTypes.func,
@@ -70,6 +82,7 @@ Button.propTypes = {
   href: propTypes.string,
   className: propTypes.string,
   isLoading: propTypes.bool,
+  isDisabled: propTypes.bool,
   isWidthAuto: propTypes.bool,
   isLight: propTypes.bool,
   isBlock: propTypes.bool,

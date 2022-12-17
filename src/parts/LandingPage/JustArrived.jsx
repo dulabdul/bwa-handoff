@@ -4,8 +4,25 @@ import btnView from '../../assets/images/design/btn_view.svg';
 import Button from '../../components/Button';
 import Carousel from '../../components/Carousell';
 import fetchData from '../../helpers/fetch';
+import Currency from '../../helpers/format/Currency';
 import useAsync from '../../helpers/hooks/useAsync';
-
+function Loading() {
+  return Array(6)
+    .fill()
+    .map((_, index) => {
+      return (
+        <div
+          className='relative px-4 group card'
+          key={index}>
+          <div
+            className='rounded-3xl bg-gray-300 overflow-hidden shadow-md relative'
+            style={{ width: 287, height: 387 }}></div>
+          <div className='w-24 h-3 bg-gray-300 mt-3 rounded-full'></div>
+          <div className='w-36 h-3 bg-gray-300 mt-3 rounded-full'></div>
+        </div>
+      );
+    });
+}
 export default function JustArrived() {
   const { data, run, isLoading, erorr } = useAsync();
   useEffect(() => {
@@ -28,7 +45,7 @@ export default function JustArrived() {
         </div>
       </div>
       <div
-        className='overflow-x-hidden px-4'
+        className='overflow-x-hidden px-4 py-8'
         id='carousel'>
         <div
           className='container mx-auto'
@@ -41,7 +58,7 @@ export default function JustArrived() {
               paddingLeft:
                 refContainer.current?.getBoundingClientRect?.()?.left - 16 || 0,
             }}>
-            Loading
+            <Loading />
           </div>
         ) : erorr ? (
           JSON.stringify(erorr)
@@ -72,7 +89,7 @@ export default function JustArrived() {
                   <h6 className='text-xl font-semibold text-start mt-2'>
                     {item.title}
                   </h6>
-                  <p>IDR {item.price}</p>
+                  <p>IDR {Currency(item.price)}</p>
                   <Button
                     type='link'
                     isExternal

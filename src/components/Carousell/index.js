@@ -20,7 +20,6 @@ export default function Carousel({ children, refContainer }) {
 
   const fnCheckIndex = useCallback(
     (e) => {
-      console.log(e);
       if (e.propertyName === 'left') {
         setTimeout(() => {
           refDragHandler.current.classList.remove(
@@ -51,7 +50,6 @@ export default function Carousel({ children, refContainer }) {
 
   const fnShiftItem = useCallback(
     (direction) => {
-      console.log(direction);
       refDragHandler.current.classList.add('transition-all', 'duration-200');
 
       if (isAllowShift.current) {
@@ -76,7 +74,6 @@ export default function Carousel({ children, refContainer }) {
     (e) => {
       e = e || window.event;
       e.preventDefault();
-      console.log(e);
 
       if (e.type === 'touchmove') {
         posX2.current = posX1.current - e.touches[0].clientX;
@@ -97,7 +94,6 @@ export default function Carousel({ children, refContainer }) {
     (e) => {
       e = e || window.event;
       e.preventDefault();
-      console.log(e);
 
       posFinal.current = refDragHandler.current.offsetLeft;
       if (posFinal.current - posInitial.current < -thresold) {
@@ -118,7 +114,7 @@ export default function Carousel({ children, refContainer }) {
     (e) => {
       e = e || window.event;
       e.preventDefault();
-      console.log(e);
+
       posInitial.current = refDragHandler.current.offsetLeft;
 
       if (e.type === 'touchstart') {
@@ -148,11 +144,11 @@ export default function Carousel({ children, refContainer }) {
     refForwardDragHandler.addEventListener('transitionend', fnCheckIndex);
     return () => {
       refForwardDragHandler.onmousedown = onDragStart;
-      refForwardDragHandler.addEventListener('touchstart', onDragStart);
-      refForwardDragHandler.addEventListener('touchend', onDragEnd);
-      refForwardDragHandler.addEventListener('touchmove', onDragMove);
-      refForwardDragHandler.addEventListener('click', onClick);
-      refForwardDragHandler.addEventListener('transitionend', fnCheckIndex);
+      refForwardDragHandler.removeEventListener('touchstart', onDragStart);
+      refForwardDragHandler.removeEventListener('touchend', onDragEnd);
+      refForwardDragHandler.removeEventListener('touchmove', onDragMove);
+      refForwardDragHandler.removeEventListener('click', onClick);
+      refForwardDragHandler.removeEventListener('transitionend', fnCheckIndex);
     };
   }, [onDragStart, onDragEnd, onDragMove, onClick, fnCheckIndex]);
   useLayoutEffect(() => {

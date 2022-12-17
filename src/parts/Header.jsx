@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import logoSVG from '../assets/images/design/logo.svg';
+
 import hamburgerMenu from '../assets/images/design/menu-hamburger.svg';
-import cartSVG from '../assets/images/design/cart.svg';
+import { ReactComponent as CartSVG } from '../assets/images/design/cart.svg';
 import Button from '../components/Button';
+import { useGlobalContext } from '../helpers/hooks/useGlobalContext';
 // Hamburger
 
 //End of Hamburger
@@ -11,7 +13,19 @@ export default function Header({ pages }) {
   const toggleHamburger = () => {
     setHamburgerOpen(!hamburgerOpen);
   };
+  const [isCartChanged, setCartChanged] = useState(false);
+  const { state } = useGlobalContext();
 
+  const prevCart = useRef(state?.cart || {});
+  useLayoutEffect(() => {
+    if (prevCart.current !== state.cart) {
+      prevCart.current = state?.cart || {};
+      setCartChanged(true);
+      setTimeout(() => {
+        setCartChanged(false);
+      }, 1000);
+    }
+  }, [state.cart]);
   return (
     <>
       <header
@@ -41,11 +55,11 @@ export default function Header({ pages }) {
                 />
               </Button>
               <nav
-                className={`transition-all right-0 bg-white w-full lg:bg-transparent lg:block lg:w-full lg:static top-full ease-out duration-500 ${
+                className={`transition-all right-0 bg-white w-full md:bg-transparent md:block md:w-full md:static top-full ease-out duration-500 ${
                   hamburgerOpen ? 'block' : 'hidden'
                 } ${hamburgerOpen ? 'h-100' : ''}`}
                 id='navMenu'>
-                <ul className='flex flex-col lg:flex-row items-center gap-y-10 mx-auto duration-300 ease-out'>
+                <ul className='flex flex-col md:flex-row items-center gap-y-10 mx-auto duration-300 ease-out'>
                   <li className='group '>
                     <a
                       href='a'
@@ -92,14 +106,24 @@ export default function Header({ pages }) {
                   </li>
                 </ul>
               </nav>
-              <a
-                href='test'
-                className='block'>
-                <img
-                  src={cartSVG}
-                  alt=''
-                />
-              </a>
+              <div>
+                <div
+                  className={`items-center transition-all justify-center absolute z-50 top-[9px] right-[3px] bg-pink-400 rounded-full w-7 h-7 text-center ${
+                    Object.keys(state.cart).length === 0 ? 'hidden' : 'flex '
+                  } ${isCartChanged ? 'animate-bounce ' : ''}`}>
+                  <span className='text-white text-sm'>
+                    {Object.keys(state.cart).length}
+                  </span>
+                </div>
+                <Button
+                  type='link'
+                  href='/cart'
+                  className={`cart ${
+                    isCartChanged ? 'animate-bounce block' : ''
+                  }`}>
+                  <CartSVG />
+                </Button>
+              </div>
             </div>
           </div>
         </div>

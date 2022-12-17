@@ -30,6 +30,9 @@
   .button {
     @apply bg-pink-300 rounded-full px-6 py-3 inline-block mt-10 text-slate-900 font-semibold text-base hover:text-pink-300 hover:bg-black transition-all ease-in-out;
   }
+  .button-disabled {
+    @apply bg-gray-300 rounded-full px-6 py-3 inline-block mt-10 text-slate-900 font-semibold text-base cursor-not-allowed;
+  }
   .card-categories {
     @apply overflow-hidden relative h-[180px] hover:scale-95 transition-all duration-500 rounded-3xl;
   }
@@ -41,6 +44,23 @@
   }
   .grid-cart {
     @apply grid grid-cols-4 md:px-4 mx-auto gap-y-4 gap-x-2 items-center justify-center overflow-hidden w-[315px] h-[90px] md:mx-0 rounded-2xl md:w-full my-6;
+  }
+  .thumbnail .item {
+    @apply relative;
+  }
+  .thumbnail .item:after {
+    content: '';
+    @apply transition-all absolute inset-0 bg-black border-2 bg-opacity-0 border-black border-opacity-0 rounded-lg;
+  }
+  .thumbnail .selected:after {
+    content: '';
+    @apply bg-opacity-25 border-opacity-100;
+  }
+  a.cart svg g circle.fill-current {
+    @apply hidden;
+  }
+  a.cart.cart-filled svg g circle.fill-current {
+    @apply block;
   }
 }
 @tailwind utilities;

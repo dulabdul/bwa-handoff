@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import Button from '../../components/Button';
 import fetchData from '../../helpers/fetch';
+import Currency from '../../helpers/format/Currency';
 import useAsync from '../../helpers/hooks/useAsync';
 function SkeletonLoading({ ratio = {} }) {
   const dummy = [
@@ -60,7 +61,6 @@ export default function BrowserRoom({ exploreRef }) {
       })
     );
   }, [run]);
-  console.log(data, status, error);
   const ratioClassNames = {
     wrapper: {
       md: {
@@ -108,7 +108,8 @@ export default function BrowserRoom({ exploreRef }) {
                         {item.title}
                       </h2>
                       <h3 className=''>
-                        {item.products} Item {item.product > 1 ? 's' : ''}{' '}
+                        {Currency(item.products)} Item
+                        {item.products > 1 ? 's' : ''}{' '}
                       </h3>
                     </div>
                   </div>

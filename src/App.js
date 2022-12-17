@@ -1,14 +1,15 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import Cart from './pages/Cart';
 import DetailsPage from './pages/DetailsPage';
 import LandingPages from './pages/LandingPages';
 import SuccessPages from './pages/SuccessPages';
 import NotFoundPages from './pages/NotFoundPages';
+import Provider from './helpers/hooks/useGlobalContext';
 
 function App() {
   return (
-    <>
-      <div className='App font-open-sans'>
+    <Provider>
+      <Router>
         <Routes>
           <Route
             exacth
@@ -17,12 +18,12 @@ function App() {
           />
           <Route
             exacth
-            path='/categories/:idc/products/:id'
+            path='/categories/:idc/products/:idp'
             element={<DetailsPage />}
           />
           <Route
             exacth
-            path='/cart/:idc'
+            path='/cart'
             element={<Cart />}
           />
           <Route
@@ -36,8 +37,8 @@ function App() {
             element={<NotFoundPages />}
           />
         </Routes>
-      </div>
-    </>
+      </Router>
+    </Provider>
   );
 }
 

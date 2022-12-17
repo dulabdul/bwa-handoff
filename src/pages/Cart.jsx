@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BreadCrumb from '../components/Breadcrumb';
+import fetchData from '../helpers/fetch';
+import useAsync from '../helpers/hooks/useAsync';
 import ShippingDetails from '../parts/Cart/ShippingDetails';
 import ShoppingCart from '../parts/Cart/ShoppingCart';
 import Footer from '../parts/Footer';
@@ -7,13 +9,17 @@ import Header from '../parts/Header';
 import Sitemap from '../parts/Sitemap';
 
 export default function Cart() {
+  const { data, isLoading, run } = useAsync();
+  useEffect(() => {
+    run(fetchData({ url: '/api/checkout/meta' }));
+  }, [run]);
   return (
     <>
       <Header />
       <BreadCrumb
         list={[
           { url: '/', name: 'Home' },
-          { url: '/Cart/203', name: 'Shopping Cart' },
+          { url: '/cart', name: 'Shopping Cart' },
         ]}
       />
       <section className='container mx-auto md:py-20'>
@@ -22,7 +28,10 @@ export default function Cart() {
             <ShoppingCart />
           </div>
           <div className='md:col-start-8 md:col-end-13'>
-            <ShippingDetails />
+            <ShippingDetails
+              data={data}
+              isLoading={isLoading}
+            />
           </div>
         </div>
       </section>

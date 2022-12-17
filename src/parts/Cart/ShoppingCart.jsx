@@ -2,7 +2,11 @@ import React from 'react';
 
 import Button from '../../components/Button';
 import xSVG from '../../assets/images/design/X.svg';
+import { useGlobalContext } from '../../helpers/hooks/useGlobalContext';
+import Currency from '../../helpers/format/Currency';
+import notFoundCart from '../../assets/images/design/not-found-shop.jpg';
 export default function ShoppingCart() {
+  const { state, dispatch } = useGlobalContext();
   return (
     <>
       <div className='grid grid-cols-1 px-4'>
@@ -25,90 +29,71 @@ export default function ShoppingCart() {
         </div>
         <hr />
       </div>
-      <div className='grid-cart'>
-        <div className='w-full h-full'>
-          <img
-            src=''
-            className='w-full h-full object-cover bg-no-repeat object-center rounded-2xl shadow-sm md:h-[90px] md:w-[90px]'
-            alt=''
-          />
-        </div>
-        <div className='w-full h-full col-span-2 md:grid-cols-2 grid items-center'>
-          <h5 className='font-semibold text-xl'>
-            Saman Kakka{' '}
-            <span className='text-base font-light'>Office Room</span>
-          </h5>
-
-          <p className='text-base font-semibold'>IDR 28.000.000</p>
-        </div>
-        <div className='flex items-center justify-center '>
-          <Button
-            type='button'
-            className='text-red text-xl'>
+      {Object.keys(state.cart).length === 0 ? (
+        <div className='my-4 mx-auto w-full h-full'>
+          <h3 className='font-semibold text-2xl text-center mt-12'>
+            Not Found Products...
+          </h3>
+          <div className='mx-auto overflow-hidden w-52 h-52'>
             <img
-              src={xSVG}
-              className='w-6 h-6'
+              src={notFoundCart}
               alt=''
             />
-          </Button>
+          </div>
+          <div className='flex justify-center'>
+            <Button
+              href='/'
+              type='link'
+              hasShadow
+              isWidthAuto
+              className='button'>
+              Go Shopping
+            </Button>
+          </div>
         </div>
-      </div>
-      <div className='grid-cart'>
-        <div className='w-full h-full'>
-          <img
-            src=''
-            className='w-full h-full object-cover bg-no-repeat object-center rounded-2xl md:w-[90px] md:h-[90px] shadow-sm'
-            alt=''
-          />
-        </div>
-        <div className='w-full h-full col-span-2 md:grid-cols-2 grid items-center'>
-          <h5 className='font-semibold text-xl'>
-            Saman Kakka{' '}
-            <span className='text-base font-light'>Office Room</span>
-          </h5>
+      ) : (
+        Object.keys(state.cart).map((key) => {
+          const item = state.cart[key];
 
-          <p className='text-base font-semibold'>IDR 28.000.000</p>
-        </div>
-        <div className='flex items-center justify-center '>
-          <Button
-            type='button'
-            className='text-red text-xl'>
-            <img
-              src={xSVG}
-              className='w-6 h-6'
-              alt=''
-            />
-          </Button>
-        </div>
-      </div>
-      <div className='grid-cart'>
-        <div className='w-full h-full'>
-          <img
-            src=''
-            className='w-full h-full object-cover bg-no-repeat object-center rounded-2xl shadow-sm md:w-[90px] md:h-[90px]'
-            alt=''
-          />
-        </div>
-        <div className='w-full h-full col-span-2 md:grid-cols-2 grid items-center'>
-          <h5 className='font-semibold text-xl'>
-            Saman Kakka{' '}
-            <span className='text-base font-light'>Office Room</span>
-          </h5>
+          return (
+            <div
+              key={key}
+              className='grid-cart'>
+              <div className='w-full h-full'>
+                <img
+                  src={item.imgUrls[0] || ''}
+                  className='w-full h-full object-cover bg-no-repeat object-center rounded-2xl shadow-sm md:h-[90px] md:w-[90px]'
+                  alt=''
+                />
+              </div>
+              <div className='w-full h-full col-span-2 md:grid-cols-2 grid items-center'>
+                <h5 className='font-semibold text-xl'>
+                  {item.title} <br className='hidden md:block' />
+                  <span className='text-base font-light'>
+                    {item.category.title}
+                  </span>
+                </h5>
 
-          <p className='text-base font-semibold'>IDR 28.000.000</p>
-        </div>
-        <div className='flex items-center justify-center '>
-          <Button
-            type='button'
-            className='text-red text-xl'>
-            <img
-              src={xSVG}
-              className='w-6 h-6'
-              alt=''
-            />
-          </Button>
-        </div>
-      </div>
+                <p className='text-base font-semibold'>
+                  IDR {Currency(item.price)}
+                </p>
+              </div>
+              <div className='flex items-center justify-center '>
+                <Button
+                  onClick={() => dispatch({ type: 'REMOVE_CART', id: item.id })}
+                  type='button'
+                  className='text-red text-xl'>
+                  <img
+                    src={xSVG}
+                    className='w-6 h-6'
+                    alt=''
+                  />
+                </Button>
+              </div>
+            </div>
+          );
+        })
+      )}
     </>
   );
 }

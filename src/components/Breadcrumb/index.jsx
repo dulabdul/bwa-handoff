@@ -2,7 +2,6 @@ import React from 'react';
 import Button from '../Button';
 import PropTypes from 'prop-types';
 export default function BreadCrumb({ list }) {
-  console.log(list);
   return (
     <section className='bg-gray-100 py-8 px- w-full mx-auto'>
       <div className='container mx-auto px-4'>

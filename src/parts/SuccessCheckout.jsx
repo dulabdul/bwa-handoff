@@ -24,8 +24,9 @@ export default function SuccessCheckout() {
           </p>
           <div>
             <Button
-              type='button'
+              type='link'
               hasShadow
+              href='/'
               className='w-[75%] md:w-auto button'>
               Back To Shop
             </Button>
