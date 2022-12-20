@@ -12,10 +12,9 @@ export default function fetchData({
     },
     body,
   }).then(async (response) => {
-    console.log(response);
     const responseJson =
       response.status === 200 ? await response.json() : response;
-    console.log(responseJson);
+
     if (response.ok) return responseJson;
     throw new Error(JSON.stringify(responseJson));
   });

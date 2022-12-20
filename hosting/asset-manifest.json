@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8e6008e0.css",
+    "main.js": "/static/js/main.535e0d0a.js",
+    "static/js/787.b32b558e.chunk.js": "/static/js/787.b32b558e.chunk.js",
+    "static/media/hero-img.jpg": "/static/media/hero-img.28249c1ccc6bd58284ee.jpg",
+    "static/media/notfound.jpg": "/static/media/notfound.38da77fa310c806b1db8.jpg",
+    "static/media/success.svg": "/static/media/success.1efbebcc4651dabfd373de1d9f72160b.svg",
+    "static/media/not-found-shop.jpg": "/static/media/not-found-shop.a56b7ce2714254b1fb73.jpg",
+    "static/media/logo.svg": "/static/media/logo.bdae1955b5ac1db73dc16dbc4a3112b4.svg",
+    "static/media/herman-miller.svg": "/static/media/herman-miller.28b8a955d6a1f1f5b6ff02da0ff7fd38.svg",
+    "static/media/tokopedia.svg": "/static/media/tokopedia.b29a37baaff9566fcad88fee3e14293c.svg",
+    "static/media/cart.svg": "/static/media/cart.b2909ecad56b856ff3222fc5fc2e1ae6.svg",
+    "static/media/btn_view.svg": "/static/media/btn_view.441cd64fda995c6d031f1c5a3a492af1.svg",
+    "static/media/ikea.svg": "/static/media/ikea.c25b1bc16f0e1ddb1a95b4a89a201e94.svg",
+    "static/media/menu-hamburger.svg": "/static/media/menu-hamburger.c25a5a09f525b700242cd59ab9825b08.svg",
+    "index.html": "/index.html",
+    "static/media/X.svg": "/static/media/X.093bb1173ed3ab27d102cbd4fe5742df.svg",
+    "main.8e6008e0.css.map": "/static/css/main.8e6008e0.css.map",
+    "main.535e0d0a.js.map": "/static/js/main.535e0d0a.js.map",
+    "787.b32b558e.chunk.js.map": "/static/js/787.b32b558e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8e6008e0.css",
+    "static/js/main.535e0d0a.js"
+  ]
+}

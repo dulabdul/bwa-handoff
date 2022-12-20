@@ -20,8 +20,8 @@ export default function NotFound() {
 
           <div>
             <Button
-              type='button'
-              onClick={() => window.history.back()}
+              type='link'
+              href='/'
               hasShadow
               className='w-[75%] md:w-auto button'>
               Back To Home

@@ -23,7 +23,6 @@ function Reducer(state, action) {
             },
       };
     case 'REMOVE_CART':
-      console.log(action);
       return {
         ...state,
         cart: Object.keys(state.cart)

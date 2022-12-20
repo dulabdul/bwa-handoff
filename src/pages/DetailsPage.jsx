@@ -7,6 +7,7 @@ import ProductDetails from '../parts/DetailsPage/ProductDetails';
 import Suggestion from '../parts/DetailsPage/Suggestion';
 import Footer from '../parts/Footer';
 import Header from '../parts/Header';
+import ScrollToTop from '../parts/ScrollToTop';
 import Sitemap from '../parts/Sitemap';
 
 function LoadingProductsDetails() {
@@ -14,8 +15,8 @@ function LoadingProductsDetails() {
     <section className='container mx-auto'>
       <div className='grid grid-cols-1 px-4 pt-8 md:grid-cols-12 md:grid-rows-1'>
         <div className='w-full md:col-start-9 md:col-end-13 md:row-start-1'>
-          <div className='w-80 h-10 bg-gray-300 animate-pulsa rounded-full'></div>
-          <div className='w-40 h-8 bg-gray-300 animate-pulsa rounded-full my-4'></div>
+          <div className='w-80 h-10 bg-gray-300 animate-pulse rounded-full'></div>
+          <div className='w-40 h-8 bg-gray-300 animate-pulse rounded-full my-4'></div>
         </div>
         <div className='thumbnail grid grid-flow-col gap-x-2 -mx-2 overflow-x-auto row-start-3 pl-2 md:grid-flow-row md:row-start-1 md:col-start-1 md:col-end-2'>
           {Array(5)
@@ -36,14 +37,14 @@ function LoadingProductsDetails() {
           <div className='overflow-hidden h-full bg-gray-300 rounded-xl'></div>
         </div>
         <div className='w-full py-10 flex mx-auto md:col-start-9 md:row-start-1 md:col-end-13 flex-col md:justify-center'>
-          <div className='w-72 h-12 rounded-full animate-pulsa bg-gray-300'></div>
-          <div className='w-72 h-4 mt-12 bg-gray-300 animate-pulsa rounded-full'></div>
-          <div className='w-44 h-4 mt-6 bg-gray-300 animate-pulsa rounded-full'></div>
-          <div className='w-80 h-4 mt-2 bg-gray-300 animate-pulsa rounded-full'></div>
-          <div className='w-72 h-4 mt-2 bg-gray-300 animate-pulsa rounded-full'></div>
-          <div className='w-60 h-4 mt-2 bg-gray-300 animate-pulsa rounded-full'></div>
-          <div className='w-72 h-4 mt-2 bg-gray-300 animate-pulsa rounded-full'></div>
-          <div className='w-48 h-4 mt-2 bg-gray-300 animate-pulsa rounded-full'></div>
+          <div className='w-72 h-12 rounded-full animate-pulse bg-gray-300'></div>
+          <div className='w-72 h-4 mt-12 bg-gray-300 animate-pulse rounded-full'></div>
+          <div className='w-44 h-4 mt-6 bg-gray-300 animate-pulse rounded-full'></div>
+          <div className='w-80 h-4 mt-2 bg-gray-300 animate-pulse rounded-full'></div>
+          <div className='w-72 h-4 mt-2 bg-gray-300 animate-pulse rounded-full'></div>
+          <div className='w-60 h-4 mt-2 bg-gray-300 animate-pulse rounded-full'></div>
+          <div className='w-72 h-4 mt-2 bg-gray-300 animate-pulse rounded-full'></div>
+          <div className='w-48 h-4 mt-2 bg-gray-300 animate-pulse rounded-full'></div>
         </div>
       </div>
     </section>
@@ -56,8 +57,8 @@ function LoadingSuggest() {
       <div className='container mx-auto px-4'>
         <div className='grid grid-cols-1 items-center overflow-x-auto'>
           <div className='w-full pt-12 pb-8'>
-            <div className='w-80 h-6 bg-gray-300 animate-pulsa rounded-full'></div>
-            <div className='w-48 h-4 mt-3 bg-gray-300 animate-pulsa rounded-full'></div>
+            <div className='w-80 h-6 bg-gray-300 animate-pulse rounded-full'></div>
+            <div className='w-48 h-4 mt-3 bg-gray-300 animate-pulse rounded-full'></div>
           </div>
           <div className='w-full h-full pb-20 overflow-auto grid-flow-col grid gap-x-5 justify-start'>
             {Array(4)
@@ -70,8 +71,8 @@ function LoadingSuggest() {
                     <div className='w-full h-full overflow-hidden animate-pulse'>
                       <div className='rounded-2xl shadow-sm bg-gray-300 w-full md:w-[287px] h-[150px]'></div>
                     </div>
-                    <div className='w-64 h-5 mb-2 bg-gray-300 animate-pulsa rounded-full'></div>
-                    <div className='w-40 h-4 bg-gray-300 animate-pulsa rounded-full'></div>
+                    <div className='w-64 h-5 mb-2 bg-gray-300 animate-pulse rounded-full'></div>
+                    <div className='w-40 h-4 bg-gray-300 animate-pulse rounded-full'></div>
                   </div>
                 );
               })}
@@ -92,7 +93,10 @@ export default function DetailsPage() {
       })
     );
   }, [idp, run]);
-  console.log(useParams());
+  console.log(data);
+  useEffect(() => {
+    document.title = `Details | ${data ? `${data.title}` : ''}`;
+  }, [data]);
   return (
     <>
       <Header pages='Details' />
@@ -120,6 +124,7 @@ export default function DetailsPage() {
         <Sitemap />
         <Footer />
       </footer>
+      <ScrollToTop />
     </>
   );
 }

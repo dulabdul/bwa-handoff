@@ -32,7 +32,7 @@ export default function Hero({ exploreRef }) {
       </div>
       <div className='w-full inset-0 md:w-1/2 md:relative'>
         <div className='relative min-h-[90vh] md:min-h-[auto]'>
-          <div className='absolute inset-0 hover:bg-black opacity-20 z-10 transition-all duration-400'></div>
+          <div className='absolute inset-0 bg-black opacity-20 z-10 transition-all duration-400'></div>
 
           <img
             src={heroImg}

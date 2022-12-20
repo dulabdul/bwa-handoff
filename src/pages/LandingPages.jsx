@@ -6,6 +6,7 @@ import JustArrived from '../parts/LandingPage/JustArrived';
 import Clients from '../parts/Clients';
 import Footer from '../parts/Footer';
 import Sitemap from '../parts/Sitemap';
+import ScrollToTop from '../parts/ScrollToTop';
 export default function LandingPages() {
   const exploreRef = useRef(null);
   useEffect(() => {
@@ -25,6 +26,7 @@ export default function LandingPages() {
         <Sitemap />
         <Footer />
       </footer>
+      <ScrollToTop />
     </>
   );
 }

@@ -73,9 +73,9 @@ export default function ProductDetails({ data }) {
           <h5 className='font-semibold text-lg leading-relaxed mb-2 md:mt-10 mt-6'>
             About the product
           </h5>
-          <p className='text-base leading-relaxed'>
+          <div>
             {data?.description ? HTMLReactParser(data?.description) : 'Loading'}
-          </p>
+          </div>
         </div>
       </div>
     </section>

@@ -33,7 +33,6 @@ export default function ShippingDetails({ data, isLoading }) {
           type: 'RESET_CART',
         });
       }
-      console.log(res);
     } catch (error) {
       console.log(error);
     }
