@@ -70,13 +70,13 @@ export default function JustArrived() {
               return (
                 <div
                   key={item.id}
-                  className='pl-4 relative h-full group transition-all duration-300 card'>
+                  className='pl-4 relative h-full group transition-all duration-300 card card-carousel'>
                   <div className='h-[386px] w-[280px] rounded-3xl overflow-hidden relative transition-all duration-400 ease-in-out'>
                     <div className='absolute w-full h-full flex items-center justify-center overflow-hidden bg-black bg-opacity-30 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-400 ease-in-out'>
                       <div className='items-center justify-center bg-white hidden w-16 h-16 group-hover:flex rounded-full shadow-md'>
                         <img
                           src={btnView}
-                          alt=''
+                          alt={item.tile}
                         />
                       </div>
                     </div>

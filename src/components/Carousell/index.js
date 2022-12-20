@@ -137,18 +137,36 @@ export default function Carousel({ children, refContainer }) {
     const refForwardDragHandler = refDragHandler.current;
 
     refForwardDragHandler.onmousedown = onDragStart;
-    refForwardDragHandler.addEventListener('touchstart', onDragStart);
-    refForwardDragHandler.addEventListener('touchend', onDragEnd);
-    refForwardDragHandler.addEventListener('touchmove', onDragMove);
+    refForwardDragHandler.addEventListener('touchstart', onDragStart, {
+      passive: true,
+    });
+    refForwardDragHandler.addEventListener('touchend', onDragEnd, {
+      passive: true,
+    });
+    refForwardDragHandler.addEventListener('touchmove', onDragMove, {
+      passive: true,
+    });
     refForwardDragHandler.addEventListener('click', onClick);
-    refForwardDragHandler.addEventListener('transitionend', fnCheckIndex);
+    refForwardDragHandler.addEventListener('transitionend', fnCheckIndex, {
+      passive: true,
+    });
     return () => {
       refForwardDragHandler.onmousedown = onDragStart;
-      refForwardDragHandler.removeEventListener('touchstart', onDragStart);
-      refForwardDragHandler.removeEventListener('touchend', onDragEnd);
-      refForwardDragHandler.removeEventListener('touchmove', onDragMove);
-      refForwardDragHandler.removeEventListener('click', onClick);
-      refForwardDragHandler.removeEventListener('transitionend', fnCheckIndex);
+      refForwardDragHandler.removeEventListener('touchstart', onDragStart, {
+        passive: true,
+      });
+      refForwardDragHandler.removeEventListener('touchend', onDragEnd, {
+        passive: true,
+      });
+      refForwardDragHandler.removeEventListener('touchmove', onDragMove, {
+        passive: true,
+      });
+      refForwardDragHandler.removeEventListener('click', onClick, {
+        passive: true,
+      });
+      refForwardDragHandler.removeEventListener('transitionend', fnCheckIndex, {
+        passive: true,
+      });
     };
   }, [onDragStart, onDragEnd, onDragMove, onClick, fnCheckIndex]);
   useLayoutEffect(() => {
